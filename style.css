@@ -1,0 +1,15 @@
+body{
+  cursor: pointer;
+}
+.clickable{
+  cursor: pointer;
+  display:none
+}
+.clickable:hover{
+  background:green;
+
+}
+
+.card{
+  display:none;
+}
