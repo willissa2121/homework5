@@ -2,7 +2,7 @@
 let counter = 0;
 let winVar = 0;
 let loseVar = 0;
-let timer = 30;
+// let timer = 30;
 
 //Array of objects containing all of the displayed content
 
@@ -63,30 +63,36 @@ let questionBanks = [
 // }
 // genQuestion()
 
-//populates the quiz field with 
+//populates the quiz field with the next object of questions and potential answers 
 
 let genQuestion = (i) => {
   // document.getElementById("question").innerHTML= (questionBanks[0].question)
-  if(counter < questionBanks.length){
-  $("#question").html(questionBanks[i].question)
-  $("#answer1").html(questionBanks[i].answers[0])
-  $("#answer2").html(questionBanks[i].answers[1])
-  $("#answer3").html(questionBanks[i].answers[2])
-  $("#answer4").html(questionBanks[i].answers[3])
+  if (counter < questionBanks.length) {
+    $("#question").html(questionBanks[i].question)
+    $("#answer1").html(questionBanks[i].answers[0])
+    $("#answer2").html(questionBanks[i].answers[1])
+    $("#answer3").html(questionBanks[i].answers[2])
+    $("#answer4").html(questionBanks[i].answers[3])
+
   }
 
 }
 
 // genQuestion(0);
 
+//button that reveals and hides approproate header content, calls genquestion for its origin
+
 $("#start-button").click(function () {
-  genQuestion(0)
   timerDisplay()
+  genQuestion(0)
+  
   $("#start-button").css("display", "none")
   $("#hide-me").css("display", "none")
   $(".clickable").css("display", "block")
   $(".card").css("display", "block")
 })
+
+//Function used to empty all fields after questions is selected, then will repopulate by calling genQuestion at its counted indices (counter adds up in checked answers function)
 
 let newQuestions = () => {
   $("#append-header").empty()
@@ -97,101 +103,159 @@ let newQuestions = () => {
   $("#answer3").empty()
   $("#answer4").empty()
   genQuestion(counter)
+  $("#append-timer").css("display", "block")
 }
 
 
+// 4 different answer fields that will all append themselves to the header upon choice and then will call check answer for a string comparison
 
-$("#answer1").click(function(){
+
+$("#answer1").click(function () {
   $("#append-header").empty()
   let answer = ($("#answer1").text())
   checkAnswer(answer)
 
 })
-$("#answer2").click(function(){
+$("#answer2").click(function () {
   $("#append-header").empty()
   let answer = ($("#answer2").text())
   checkAnswer(answer)
- 
 })
-$("#answer3").click(function(){
+$("#answer3").click(function () {
   $("#append-header").empty()
   let answer = ($("#answer3").text())
   checkAnswer(answer)
- 
+
 })
-$("#answer4").click(function(){
+$("#answer4").click(function () {
   $("#append-header").empty()
   let answer = ($("#answer4").text())
   checkAnswer(answer)
- 
+  clearInterval(timer)
 })
 
 
 
 let checkAnswer = (x) => {
-  if (x === questionBanks[counter].rightAnswer){
+  if (x === questionBanks[counter].rightAnswer) {
     counter++
     console.log("youre the winner")
     displayWin();
-    
+    $("#append-timer").css("display", "none")
+
     setTimeout(newQuestions, 3000)
   }
-  else{
+  else {
     counter++
     console.log("youre a loser")
-    
+    $("#append-timer").css("display", "none")
+
     displayLose()
-    setTimeout(newQuestions,3000)
+    setTimeout(newQuestions, 3000)
   }
 
 }
+//Appended winner header based on chosen div string matching answer string
 
 let displayWin = () => {
   winVar++
   $("#right-guess").text(winVar)
   $(".clickable").css("display", "none")
   let winnerHeader = $("<h1>")
-  winnerHeader.text( "Correct!!!")
-  winnerHeader.css("color" , "green")
+  winnerHeader.text("Correct!!!")
+  winnerHeader.css("color", "green")
   $("#append-header").append(winnerHeader)
   $("#question").empty()
-  $("#question").append(questionBanks[counter-1].rightAnswer)
+
+  $("#question").append(questionBanks[counter - 1].rightAnswer)
 }
+
+// same as winner header but a loser choice if strimng comaprison does not match
 
 let displayLose = () => {
   loseVar++
   $("#wrong-guess").text(loseVar)
   $(".clickable").css("display", "none")
   let loserHeader = $("<h1>")
-  loserHeader.text( "Wrong")
-  loserHeader.css("color" , "red")
+  loserHeader.text("Wrong")
+  loserHeader.css("color", "red")
   $("#append-header").append(loserHeader)
   $("#question").empty()
-  $("#question").append(`The Correct Answer is ${questionBanks[counter-1].rightAnswer}`)
+  $("#question").append(`The Correct Answer is ${questionBanks[counter - 1].rightAnswer}`)
 }
+
+//timerfunction used to declare and call the timout function
 
 let timerDisplay = () => {
-  let timerBlock = $("<h2>")
-  timerBlock.attr("id", "timer")
-  $("#append-header").append(timerBlock)
-  let timer = setInterval(countDown, 1000)
-  
   
 
+  let timer = setInterval(countDown, 1000)
 }
 
-let timeLeft = 29
+let timeLeft = 2
 
 let countDown = () => {
-  if(timeLeft === 0){
-    clearTimeout(timer)
+  if (timeLeft === 0) {
+    clearInterval(timer)
     console.log("you lose")
+    console.log(timeLeft)
   }
-  else{
-    $("#timer").empty()
-    $("#timer").text(timeLeft)
+  else {
+    $("#append-timer").empty()
+    $("#append-timer").text(timeLeft)
     timeLeft--
   }
-  
+
 }
+
+// var files = [
+//   "pavans_first_birthday.mov",
+//   "owens_asleep_at_the_computer.jpg",
+//   "michael_fights_a_polar_bear.mp4",
+//   "nate_road_rage.avi",
+//   "ruby_skydiving.jpeg",
+//   "ken_getting_his_black_belt.png",
+//   "dan_winning_underground_street_race.mov",
+//   "its_hard_to_come_up_with_file_names.gif",
+//   "seriously_this_is_taking_too_long.mpg",
+//   "i_wonder_how_many_of_these_i_should_have.png",
+//   "probably_a_few_more.avi",
+//   "nutmeg_is_clawing_my_sneakers_again.mp4",
+//   "cat_i_will_destroy_you.gif",
+//   "i_wish_we_had_a_dog.jpeg",
+//   "stop_looking_at_me_like_that_nutmeg.mpeg",
+//   "aww_i_cant_hate_you.png",
+//   "omg_my_sneakers.avi",
+//   "cat_you_are_the_worst.mp4"
+// ]
+
+// let fileSorter = (files)=>{
+//   let movieArray = []
+//   let musicArray = []
+//   for (var i = 0; i <files.length;i++ ){
+//     let currentFile = files[i]
+
+//     if(currentFile[currentFile.length-4]!== "."){
+//       if (currentFile[currentFile.length-4]=== "m"){
+//         movieArray.push(currentFile)
+//       }
+//       else{
+//         musicArray.push(currentFile)
+//       }
+//     }
+   
+//     else if (currentFile[currentFile.length-3]==="m" ||currentFile[currentFile-3]==="a"){
+//       movieArray.push(files[i])
+//       console.log(movieArray)
+//     }
+//     else if (currentFile[currentFile.length-3]==="j" ||currentFile[currentFile-3]==="p" || currentFile[currentFile.length-3]==="p"){
+//       musicArray.push(files[i])
+//       console.log(musicArray)
+//     }
+    
+//   }
+// }
+
+// fileSorter(files)
+
 
