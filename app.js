@@ -4,23 +4,49 @@ let winVar = 0;
 let loseVar = 0;
 let timer = 30;
 
+//Array of objects containing all of the displayed content
+
 let questionBanks = [
   {
-    question: "Whos won the 2012 MVP",
+    question: "Who won the 2012 NBA MVP?",
     answers: ["Wilt The Stilt", "Lebron James", "Kobe Bryant", "Dwyane Wade"],
     rightAnswer: "Lebron James"
 
   },
 
   {
-    question: "What is the most points scores in an NBA game",
+    question: "What is the record for most points scores in a single NBA game?",
     answers: ["75", "81", "100", "92"],
     rightAnswer: "100"
   },
   {
-    question: "What team won the 2015 NBA champions",
+    question: "Which NBA team won the 2006 NBA Championship?",
     answers: ["Golden State", "Spurs", "Mavericks", "Heat"],
-    rightAnswer: "Golden State"
+    rightAnswer: "Heat"
+  }
+  ,
+  {
+    question: "Which NBA team has the best franchise win %, without ever making the NBA finals?",
+    answers: ["Grizzlies", "Suns", "Hornets", "TrailBlazers"],
+    rightAnswer: "Suns"
+  }
+  ,
+  {
+    question: "Who is the NBA all time assist leader?",
+    answers: ["Isiah Thomas", "Magic Johnson", "John Stockton", "Chris Paul"],
+    rightAnswer: "John Stockton"
+  }
+  ,
+  {
+    question: "During the 2007 season, which single NBA player was traded for 5 players and 3 picks?",
+    answers: ["Kobe Bryant", "Kevin Garnett", "Shaq", "Lebron James"],
+    rightAnswer: "Kevin Garnett"
+  }
+  ,
+  {
+    question: "Which NBA player starred in the greates movie of all time?",
+    answers: ["Michael Jordan", "Larry Legend", "Bill Russell", "Oscar Robertson"],
+    rightAnswer: "Michael Jordan"
   }
 ]
 
@@ -36,6 +62,8 @@ let questionBanks = [
 
 // }
 // genQuestion()
+
+//populates the quiz field with 
 
 let genQuestion = (i) => {
   // document.getElementById("question").innerHTML= (questionBanks[0].question)
@@ -126,6 +154,8 @@ let displayWin = () => {
   winnerHeader.text( "Correct!!!")
   winnerHeader.css("color" , "green")
   $("#append-header").append(winnerHeader)
+  $("#question").empty()
+  $("#question").append(questionBanks[counter-1].rightAnswer)
 }
 
 let displayLose = () => {
@@ -136,13 +166,32 @@ let displayLose = () => {
   loserHeader.text( "Wrong")
   loserHeader.css("color" , "red")
   $("#append-header").append(loserHeader)
+  $("#question").empty()
+  $("#question").append(`The Correct Answer is ${questionBanks[counter-1].rightAnswer}`)
 }
 
 let timerDisplay = () => {
   let timerBlock = $("<h2>")
-  timerBlock.text(timer)
+  timerBlock.attr("id", "timer")
   $("#append-header").append(timerBlock)
+  let timer = setInterval(countDown, 1000)
+  
   
 
+}
+
+let timeLeft = 29
+
+let countDown = () => {
+  if(timeLeft === 0){
+    clearTimeout(timer)
+    console.log("you lose")
+  }
+  else{
+    $("#timer").empty()
+    $("#timer").text(timeLeft)
+    timeLeft--
+  }
+  
 }
 
