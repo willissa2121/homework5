@@ -20,78 +20,78 @@ let questionBanks = [
     rightAnswer: "Lebron James"
 
   }
-  // ,
-  // {
-  //   question: "What is the record for most points scores in a single NBA game?",
-  //   answers: ["75", "81", "100", "92"],
-  //   rightAnswer: "100"
-  // }
-  // ,
-  // {
-  //   question: "Which NBA team won the 2006 NBA Championship?",
-  //   answers: ["Golden State", "Spurs", "Mavericks", "Heat"],
-  //   rightAnswer: "Heat"
-  // }
-  // ,
-  // {
-  //   question: "Which NBA team has the best franchise win %, without ever making the NBA finals?",
-  //   answers: ["Grizzlies", "Suns", "Hornets", "TrailBlazers"],
-  //   rightAnswer: "Suns"
-  // }
-  // ,
-  // {
-  //   question: "Who is the NBA all time assist leader?",
-  //   answers: ["Isiah Thomas", "Magic Johnson", "John Stockton", "Chris Paul"],
-  //   rightAnswer: "John Stockton"
-  // }
-  // ,
-  // {
-  //   question: "During the 2007 season, which single NBA player was traded for 5 players and 3 picks?",
-  //   answers: ["Kobe Bryant", "Kevin Garnett", "Shaq", "Lebron James"],
-  //   rightAnswer: "Kevin Garnett"
-  // }
-  // ,
-  // {
-  //   question: "Which NBA player starred in the greates movie of all time?",
-  //   answers: ["Michael Jordan", "Larry Legend", "Bill Russell", "Oscar Robertson"],
-  //   rightAnswer: "Michael Jordan"
-  // }
-  // ,
-  // {
-  //   question: "Which NBA player was known as 'THe Glove'?",
-  //   answers: ["Gary Payton", "Tim Duncan", "Detlef Schrempf", "Marcus Camby"],
-  //   rightAnswer: "Gary Payton"
-  // }
-  // ,
-  // {
-  //   question: "Which NBA team played the tallest lineup of all time 'average height of 6'10.5''?",
-  //   answers: ["Milwuakee Bucks", "Dallas Mavericks", "Los Angeles Lakers", "Houston Rockets"],
-  //   rightAnswer: "Dallas Mavericks"
-  // }
-  // ,
-  // {
-  //   question: "What Medal did team USA win in the 2004 Olympics?",
-  //   answers:['Gold', 'Silver', 'Bronze', 'Did Not Place'],
-  //   rightAnswer:"Bronze"
-  // }
-  // ,
-  // {
-  //   question: "What NBA team picked first overall in 2006?",
-  //   answers:['Raptors', 'Bucks', 'Pacers', 'Bobcats'],
-  //   rightAnswer:"Raptors"
-  // }
-  // ,
-  // {
-  //   question: "Who is the only NBA player to score over 4k points in one season?",
-  //   answers:['Michael Jordan', 'Wilt the Stilt', 'Elgin Baylor', 'Bill Russell'],
-  //   rightAnswer:"Wilt the Stilt"
-  // }
-  // ,
-  // {
-  //   question: "What City did the Los Angeles Lakers relocate from?",
-  //   answers:['Philadelphia', 'Vancouver', 'Seattle', 'Minneapolis'],
-  //   rightAnswer:"Minneapolis"
-  // }
+  ,
+  {
+    question: "What is the record for most points scores in a single NBA game?",
+    answers: ["75", "81", "100", "92"],
+    rightAnswer: "100"
+  }
+  ,
+  {
+    question: "Which NBA team won the 2006 NBA Championship?",
+    answers: ["Golden State", "Spurs", "Mavericks", "Heat"],
+    rightAnswer: "Heat"
+  }
+  ,
+  {
+    question: "Which NBA team has the best franchise win %, without ever making the NBA finals?",
+    answers: ["Grizzlies", "Suns", "Hornets", "TrailBlazers"],
+    rightAnswer: "Suns"
+  }
+  ,
+  {
+    question: "Who is the NBA all time assist leader?",
+    answers: ["Isiah Thomas", "Magic Johnson", "John Stockton", "Chris Paul"],
+    rightAnswer: "John Stockton"
+  }
+  ,
+  {
+    question: "During the 2007 season, which single NBA player was traded for 5 players and 3 picks?",
+    answers: ["Kobe Bryant", "Kevin Garnett", "Shaq", "Lebron James"],
+    rightAnswer: "Kevin Garnett"
+  }
+  ,
+  {
+    question: "Which NBA player starred in the greates movie of all time?",
+    answers: ["Michael Jordan", "Larry Legend", "Bill Russell", "Oscar Robertson"],
+    rightAnswer: "Michael Jordan"
+  }
+  ,
+  {
+    question: "Which NBA player was known as 'THe Glove'?",
+    answers: ["Gary Payton", "Tim Duncan", "Detlef Schrempf", "Marcus Camby"],
+    rightAnswer: "Gary Payton"
+  }
+  ,
+  {
+    question: "Which NBA team played the tallest lineup of all time 'average height of 6'10.5''?",
+    answers: ["Milwuakee Bucks", "Dallas Mavericks", "Los Angeles Lakers", "Houston Rockets"],
+    rightAnswer: "Dallas Mavericks"
+  }
+  ,
+  {
+    question: "What Medal did team USA win in the 2004 Olympics?",
+    answers:['Gold', 'Silver', 'Bronze', 'Did Not Place'],
+    rightAnswer:"Bronze"
+  }
+  ,
+  {
+    question: "What NBA team picked first overall in 2006?",
+    answers:['Raptors', 'Bucks', 'Pacers', 'Bobcats'],
+    rightAnswer:"Raptors"
+  }
+  ,
+  {
+    question: "Who is the only NBA player to score over 4k points in one season?",
+    answers:['Michael Jordan', 'Wilt the Stilt', 'Elgin Baylor', 'Bill Russell'],
+    rightAnswer:"Wilt the Stilt"
+  }
+  ,
+  {
+    question: "What City did the Los Angeles Lakers relocate from?",
+    answers:['Philadelphia', 'Vancouver', 'Seattle', 'Minneapolis'],
+    rightAnswer:"Minneapolis"
+  }
 ]
 
 
