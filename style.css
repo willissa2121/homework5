@@ -8,8 +8,18 @@
 .clickable:hover{
   background:green;
   border:2px solid limegreen;
+  color:white;
+  font-size:30px;
 
 }
+html,body{
+  overflow-x: hidden; 
+}
+
+/* .container{
+  background:grey;
+  margin-top:0;
+} */
 
 #append-timer{
   color:orange;
@@ -43,10 +53,10 @@ button{
 }
 #hide-me{
   font-family: 'Merriweather', serif;
-  font-size:25px;
+  font-size:30px;
   font-weight:400;
   margin:1vh 0 1vh 0;
-  color:#606060;
+  color:rgb(248, 183, 62);
 }
 
 .border-success{
@@ -66,8 +76,31 @@ button{
 
 #music-button{
   position:absolute;
-  left:0;
+  left:-3vw;
   top:-5vh;;
+  display:none;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.sliding-background {
+  position:absolute;
+  z-index:0;
+  background: url(pics/USA-background.jpg) repeat-x;
+  height: 80vh;
+  width: 5076px;
+  animation: slide 60s linear infinite;
+}
+
+@keyframes slide{
+  0%{
+    transform: translate3d(0, 0, 0);
+  }
+  100%{
+    transform: translate3d(-1692px, 0, 0);
+  }
 }
 
 /* #question{

@@ -101,7 +101,8 @@ let genQuestion = (i) => {
 //button that reveals and hides approproate header content, calls genquestion for its origin
 
 $("#start-button").click(function () {
-  
+  $("#music-button").css("display", "block")
+
   audio.play()
   startTimer(0)
   genQuestion(0)
@@ -116,6 +117,7 @@ $("#start-button").click(function () {
 let newQuestions = () => {
   timeCount = 15;
   startTimer(0)
+  $("#question").css("color", "black")
 
   $("#append-header").empty()
   $(".clickable").css("display", "block")
@@ -176,8 +178,8 @@ let checkAnswer = (x) => {
     if (counter < questionBanks.length) {
       setTimeout(newQuestions, 3000)
     }
-    else{
-      setTimeout(finalScreen,3000)
+    else {
+      setTimeout(finalScreen, 3000)
     }
   }
   else {
@@ -190,8 +192,8 @@ let checkAnswer = (x) => {
     if (counter < questionBanks.length) {
       setTimeout(newQuestions, 3000)
     }
-    else{
-      setTimeout(finalScreen,3000)
+    else {
+      setTimeout(finalScreen, 3000)
     }
   }
 
@@ -207,8 +209,9 @@ let displayWin = () => {
   winnerHeader.css("color", "green")
   $("#append-header").append(winnerHeader)
   $("#question").empty()
+  $("#question").css("color", "green")
 
-  $("#question").append(questionBanks[counter - 1].rightAnswer)
+  $("#question").append(`Thats Right! The answer is ${questionBanks[counter - 1].rightAnswer}`)
   let swish = document.getElementById("swish")
   swish.play()
 
@@ -225,6 +228,7 @@ let displayLose = () => {
   loserHeader.css("color", "red")
   $("#append-header").append(loserHeader)
   $("#question").empty()
+  $("#question").css("color", "red")
   $("#question").append(`The Correct Answer is ${questionBanks[counter - 1].rightAnswer}`)
   let sadness = document.getElementById("sadness")
   sadness.play()
@@ -251,17 +255,22 @@ let displayTimerLose = () => {
 }
 
 let finalScreen = () => {
+
   
+
+
+
 }
 
-$("#music-button").click(function(){
-  if(musicCounter === 0){
+// Function that toggles Space Jam on click, changes text as well depending on Music State
+$("#music-button").click(function () {
+  if (musicCounter === 0) {
     audio.pause()
     $("#music-button").empty()
     $("#music-button").text("Play Music")
     musicCounter++
   }
-  else{
+  else {
     audio.play()
     $("#music-button").empty()
     $("#music-button").text("Pause Music")
