@@ -114,3 +114,8 @@ button{
   display:none;
   font-size:35px;
 }
+
+.center-me-please{
+  display:flex;
+  justify-content:center;
+}
