@@ -64,6 +64,12 @@ button{
   font-size:35px;
 }
 
+#music-button{
+  position:absolute;
+  left:0;
+  top:-5vh;;
+}
+
 /* #question{
   color:white;
   background:
