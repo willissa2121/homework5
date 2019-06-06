@@ -2,7 +2,8 @@
 let counter = 0;
 let winVar = 0;
 let loseVar = 0;
-// let timer = 30;
+let timeCount = 15;
+var timerBaby;
 
 //Array of objects containing all of the displayed content
 
@@ -50,6 +51,23 @@ let questionBanks = [
   }
 ]
 
+//timerfunction used to declare and call the timout function
+let startTimer = () => {
+  var timerBaby = setInterval(myTimer, 1000);
+}
+
+
+let myTimer = () => {
+  $("#append-timer").empty();
+  $("#append-timer").append(timeCount);
+  timeCount --
+}
+
+function myStopFunction() {
+  timeCount = 15
+  clearInterval(timerBaby);
+}
+
 
 // let genQuestion = () => {
 //   for(var i = 0; i < questionBanks.length; i++){
@@ -68,11 +86,13 @@ let questionBanks = [
 let genQuestion = (i) => {
   // document.getElementById("question").innerHTML= (questionBanks[0].question)
   if (counter < questionBanks.length) {
+    myStopFunction()
     $("#question").html(questionBanks[i].question)
     $("#answer1").html(questionBanks[i].answers[0])
     $("#answer2").html(questionBanks[i].answers[1])
     $("#answer3").html(questionBanks[i].answers[2])
     $("#answer4").html(questionBanks[i].answers[3])
+    
 
   }
 
@@ -83,9 +103,8 @@ let genQuestion = (i) => {
 //button that reveals and hides approproate header content, calls genquestion for its origin
 
 $("#start-button").click(function () {
-  timerDisplay()
   genQuestion(0)
-  
+  startTimer();
   $("#start-button").css("display", "none")
   $("#hide-me").css("display", "none")
   $(".clickable").css("display", "block")
@@ -95,6 +114,7 @@ $("#start-button").click(function () {
 //Function used to empty all fields after questions is selected, then will repopulate by calling genQuestion at its counted indices (counter adds up in checked answers function)
 
 let newQuestions = () => {
+
   $("#append-header").empty()
   $(".clickable").css("display", "block")
   $("#question").empty()
@@ -131,23 +151,26 @@ $("#answer4").click(function () {
   $("#append-header").empty()
   let answer = ($("#answer4").text())
   checkAnswer(answer)
-  clearInterval(timer)
 })
 
 
-
+// string comparison of choices vs Correct Answer
 let checkAnswer = (x) => {
   if (x === questionBanks[counter].rightAnswer) {
+    myStopFunction()
+
     counter++
-    console.log("youre the winner")
+    // console.log("youre the winner")
     displayWin();
     $("#append-timer").css("display", "none")
 
     setTimeout(newQuestions, 3000)
   }
   else {
+    myStopFunction()
+
     counter++
-    console.log("youre a loser")
+    // console.log("youre a loser")
     $("#append-timer").css("display", "none")
 
     displayLose()
@@ -184,29 +207,10 @@ let displayLose = () => {
   $("#question").append(`The Correct Answer is ${questionBanks[counter - 1].rightAnswer}`)
 }
 
-//timerfunction used to declare and call the timout function
 
-let timerDisplay = () => {
-  
 
-  let timer = setInterval(countDown, 1000)
-}
 
-let timeLeft = 2
 
-let countDown = () => {
-  if (timeLeft === 0) {
-    clearInterval(timer)
-    console.log("you lose")
-    console.log(timeLeft)
-  }
-  else {
-    $("#append-timer").empty()
-    $("#append-timer").text(timeLeft)
-    timeLeft--
-  }
-
-}
 
 // var files = [
 //   "pavans_first_birthday.mov",
@@ -243,7 +247,7 @@ let countDown = () => {
 //         musicArray.push(currentFile)
 //       }
 //     }
-   
+
 //     else if (currentFile[currentFile.length-3]==="m" ||currentFile[currentFile-3]==="a"){
 //       movieArray.push(files[i])
 //       console.log(movieArray)
@@ -252,7 +256,7 @@ let countDown = () => {
 //       musicArray.push(files[i])
 //       console.log(musicArray)
 //     }
-    
+
 //   }
 // }
 
