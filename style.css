@@ -109,3 +109,8 @@ button{
   color:white;
   background:
 } */
+
+.reset{
+  display:none;
+  font-size:35px;
+}

@@ -16,7 +16,8 @@ let questionBanks = [
     answers: ["Wilt The Stilt", "Lebron James", "Kobe Bryant", "Dwyane Wade"],
     rightAnswer: "Lebron James"
 
-  },
+  }
+  ,
 
   {
     question: "What is the record for most points scores in a single NBA game?",
@@ -124,6 +125,8 @@ let startTimer = (timerReset) => {
 
 let genQuestion = (i) => {
   $("#question").css({"color": "orange", "font-weight": "800"})
+  $(".clickable").css("display", "block")
+  $("#append-timer").css("display", "block")
   if (counter < questionBanks.length) {
     $("#question").html(questionBanks[i].question)
     $("#answer1").html(questionBanks[i].answers[0])
@@ -295,7 +298,7 @@ let displayTimerLose = () => {
 let finalScreen = () => {
 
   
-
+  $(".reset").css("display", "block")
 
 
 }
@@ -315,6 +318,17 @@ $("#music-button").click(function () {
     musicCounter--
 
   }
+})
+
+//Reset button onclick function, will have questions re-appear by recalling genQUestion() and setting counter to 0
+
+$(".reset").click(function(){
+  $("#question").empty()
+  $("#append-header").empty()
+  counter = 0;
+  genQuestion(counter)
+  $(".reset").css("display", "none")
+  startTimer(0)
 })
 
 
