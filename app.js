@@ -305,6 +305,10 @@ let displayTimerLose = () => {
 let finalScreen = () => {
 
   
+  $("#append-header").empty()
+  $("#question").empty()
+  $("#append-header").text("THANKS FOR PLAYING!")
+  $("#question").text("Feel free to press Reset to try again, or you can keep marveling at your subpar score")
   $(".reset").css("display", "block")
 
 
@@ -338,12 +342,3 @@ $(".reset").click(function(){
   timeCount = 15
   startTimer(0)
 })
-
-
-
-
-
-
-
-
-
