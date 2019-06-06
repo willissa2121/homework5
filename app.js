@@ -52,6 +52,42 @@ let questionBanks = [
     answers: ["Michael Jordan", "Larry Legend", "Bill Russell", "Oscar Robertson"],
     rightAnswer: "Michael Jordan"
   }
+  ,
+  {
+    question: "Which NBA player was known as 'THe Glove'?",
+    answers: ["Gary Payton", "Tim Duncan", "Detlef Schrempf", "Marcus Camby"],
+    rightAnswer: "Gary Payton"
+  }
+  ,
+  {
+    question: "Which NBA team played the tallest lineup of all time 'average height of 6'10.5''?",
+    answers: ["Milwuakee Bucks", "Dallas Mavericks", "Los Angeles Lakers", "Houston Rockets"],
+    rightAnswer: "Dallas Mavericks"
+  }
+  ,
+  {
+    question: "What Medal did team USA win in the 2004 Olympics?",
+    answers:['Gold', 'Silver', 'Bronze', 'Did Not Place'],
+    rightAnswer:"Bronze"
+  }
+  ,
+  {
+    question: "What NBA team picked first overall in 2006?",
+    answers:['Raptors', 'Bucks', 'Pacers', 'Bobcats'],
+    rightAnswer:"Raptors"
+  }
+  ,
+  {
+    question: "Who is the only NBA player to score over 4k points in one season?",
+    answers:['Michael Jordan', 'Wilt the Stilt', 'Elgin Baylor', 'Bill Russell'],
+    rightAnswer:"Wilt the Stilt"
+  }
+  ,
+  {
+    question: "What City did the Los Angeles Lakers relocate from?",
+    answers:['Philadelphia', 'Vancouver', 'Seattle', 'Minneapolis'],
+    rightAnswer:"Minneapolis"
+  }
 ]
 
 
@@ -87,6 +123,7 @@ let startTimer = (timerReset) => {
 //populates the quiz field with the next object of questions and potential answers 
 
 let genQuestion = (i) => {
+  $("#question").css({"color": "orange", "font-weight": "800"})
   if (counter < questionBanks.length) {
     $("#question").html(questionBanks[i].question)
     $("#answer1").html(questionBanks[i].answers[0])
@@ -117,7 +154,7 @@ $("#start-button").click(function () {
 let newQuestions = () => {
   timeCount = 15;
   startTimer(0)
-  $("#question").css("color", "black")
+  $("#question").css("color", "orange")
 
   $("#append-header").empty()
   $(".clickable").css("display", "block")
@@ -206,10 +243,10 @@ let displayWin = () => {
   $(".clickable").css("display", "none")
   let winnerHeader = $("<h1>")
   winnerHeader.text("Correct!!!")
-  winnerHeader.css("color", "green")
+  winnerHeader.css("color", "limegreen")
   $("#append-header").append(winnerHeader)
   $("#question").empty()
-  $("#question").css("color", "green")
+  $("#question").css("color", "limegreen")
 
   $("#question").append(`Thats Right! The answer is ${questionBanks[counter - 1].rightAnswer}`)
   let swish = document.getElementById("swish")
@@ -248,6 +285,7 @@ let displayTimerLose = () => {
   $("#question").empty()
   console.log(counter)
   console.log(questionBanks[counter - 1].rightAnswer)
+  $("#question").css("color", "red")
   $("#question").append(`The Correct Answer is ${questionBanks[counter - 1].rightAnswer}`)
   setTimeout(newQuestions, 3000)
   sadness.play()

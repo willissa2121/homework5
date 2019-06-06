@@ -3,7 +3,8 @@
 } */
 .clickable{
   cursor: pointer;
-  display:none
+  display:none;
+  color:orange;
 }
 .clickable:hover{
   background:green;
@@ -17,8 +18,7 @@ html,body{
 }
 
 /* .container{
-  background:grey;
-  margin-top:0;
+  margin-top:-15px;;
 } */
 
 #append-timer{
@@ -40,6 +40,7 @@ html,body{
   font-family: 'Merriweather', serif;
   font-size: 80px;
   font-weight: 700;
+  margin-bottom:0;
 }
 
 button{
@@ -86,6 +87,7 @@ button{
 }
 
 .sliding-background {
+  margin-top:0;
   position:absolute;
   z-index:0;
   background: url(pics/USA-background.jpg) repeat-x;
