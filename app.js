@@ -292,6 +292,9 @@ let displayTimerLose = () => {
   $("#question").append(`The Correct Answer is ${questionBanks[counter - 1].rightAnswer}`)
   setTimeout(newQuestions, 3000)
   sadness.play()
+  if(counter === questionBanks.length){
+    finalScreen()
+  }
 
 }
 
